@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Web3 Blog: Your go-to source for Thirdweb insights, blockchain development guides, and Web3 application best practices. Explore the future of decentralized technology." name="description"/>
+<meta content="blockchain network, blockchain development, blockchain news, blockchain platform, blockchain for business, future of blockchain, blockchain security, blockchain companies, web3, thirdweb, development platform, open-source web3, web3 apps" name="keywords"/>
+<meta content="top3web_network" name="author"/>
+<meta content="index, follow" name="robots"/>
+<meta content="top3web_network - Web3 Blog and Thirdweb Insights" property="og:title"/>
+<meta content="Discover best practices, guides, and news on using Thirdweb for Web3 applications, smart contracts, and NFT marketplaces." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://top3web_network.com" property="og:url"/>
+<meta content="https://placehold.co/1200x630/000000/FFFFFF.png?text=top3web_network" property="og:image"/>
+<title>top3web_network</title>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&amp;family=Roboto:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
+<style>
+    :root {
+        --primary-bg: #000000;
+        --secondary-bg: #1a1a1a;
+        --text-color: #ffffff;
+        --neon-purple: #b300ff;
+        --neon-blue: #00b3ff;
+        --neon-cyan: #00ffff;
+        --neon-green: #00ff00;
+    }
+    body {
+        background-color: var(--primary-bg);
+        color: var(--text-color);
+        font-family: 'Roboto', sans-serif;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Orbitron', sans-serif;
+    }
+    .neon-text {
+        text-shadow: 0 0 10px var(--neon-purple), 0 0 20px var(--neon-blue), 0 0 30px var(--neon-cyan), 0 0 40px var(--neon-green);
+    }
+    .gradient-bg {
+        background: linear-gradient(45deg, var(--neon-purple), var(--neon-blue), var(--neon-cyan), var(--neon-green));
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+    }
+    @keyframes gradient {
+        0% {background-position: 0% 50%;}
+        50% {background-position: 100% 50%;}
+        100% {background-position: 0% 50%;}
+    }
+    .holographic {
+        position: relative;
+        overflow: hidden;
+    }
+    .holographic::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+        z-index: 1;
+        pointer-events: none;
+    }
+</style>
+<script crossorigin="anonymous" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        // Add any custom JavaScript for enhanced interactivity here
+        console.log('DOM fully loaded and parsed');
+    });
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (!localStorage.getItem('cookieConsent')) {
+        const cookiePopup = document.createElement('div');
+        cookiePopup.style.position = 'fixed';
+        cookiePopup.style.bottom = '20px';
+        cookiePopup.style.left = '50%';
+        cookiePopup.style.transform = 'translateX(-50%)';
+        cookiePopup.style.backgroundColor = 'rgba(30, 30, 30, 0.9)';
+        cookiePopup.style.color = '#fff';
+        cookiePopup.style.padding = '20px';
+        cookiePopup.style.borderRadius = '10px';
+        cookiePopup.style.boxShadow = '0 0 20px rgba(138, 43, 226, 0.5)';
+        cookiePopup.style.zIndex = '9999';
+        cookiePopup.style.maxWidth = '400px';
+        cookiePopup.style.textAlign = 'center';
+
+        cookiePopup.innerHTML = `
+            <h4 style="color: #8a2be2; margin-bottom: 15px;">Cookie Consent</h4>
+            <p style="margin-bottom: 20px;">We use cookies to enhance your Web3 experience on our blockchain development platform. Do you agree to our cookie policy?</p>
+            <button id="acceptCookies" style="background: linear-gradient(45deg, #8a2be2, #00ffff); border: none; color: white; padding: 10px 20px; margin-right: 10px; border-radius: 5px; cursor: pointer;">Accept</button>
+            <button id="declineCookies" style="background: transparent; border: 1px solid #8a2be2; color: #8a2be2; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Decline</button>
+        `;
+
+        document.body.appendChild(cookiePopup);
+
+        document.getElementById('acceptCookies').addEventListener('click', function() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            cookiePopup.style.display = 'none';
+        });
+
+        document.getElementById('declineCookies').addEventListener('click', function() {
+            localStorage.setItem('cookieConsent', 'declined');
+            cookiePopup.style.display = 'none';
+        });
+    }
+});
+</script>
+</head>
+<body style="display: flex; flex-direction: column; min-height: 100vh;">
+<div style="flex: 1;">
+<header>
+<div class="container-fluid bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark">
+<div class="container">
+<a class="navbar-brand" href="/" style="font-size: 1.5rem; background: linear-gradient(45deg, #8A2BE2, #00FFFF); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                top3web_network
+            </a>
+<button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+<ul class="navbar-nav">
+<li class="nav-item">
+<a class="nav-link" href="posts.html" style="color: #00FFFF; transition: all 0.3s ease;">Posts</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="about.html" style="color: #FF00FF; transition: all 0.3s ease;">About</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="contacts.html" style="color: #00FF00; transition: all 0.3s ease;">Contacts</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="privacy_policy.html" style="color: #1E90FF; transition: all 0.3s ease;">Privacy Policy</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+</div>
+<style>
+    .navbar-nav .nav-link:hover {
+        text-shadow: 0 0 10px currentColor;
+        transform: scale(1.1);
+    }
+    .navbar-brand {
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+    @media (max-width: 991px) {
+        .navbar-collapse {
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 10px;
+        }
+    }
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('mouseover', () => {
+            link.style.textShadow = `0 0 10px ${link.style.color}`;
+        });
+        link.addEventListener('mouseout', () => {
+            link.style.textShadow = 'none';
+        });
+    });
+
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+
+    navbarToggler.addEventListener('click', () => {
+        navbarCollapse.classList.toggle('show');
+    });
+});
+</script>
+</header>
+<div style="margin-bottom: 50px;">
+<div class="container-fluid py-5" style="background: linear-gradient(45deg, #000000, #1a1a1a); color: #ffffff;">
+<div class="row justify-content-center">
+<div class="col-md-8 text-center">
+<h1 class="display-4 mb-4" style="font-weight: 700; text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 10px #8a2be2, 0 0 20px #4b0082;">
+                Explore the Web3 Universe
+            </h1>
+<p class="lead" style="font-size: 1.25rem; max-width: 800px; margin: 0 auto; text-shadow: 0 0 5px #00ffff;">
+                Dive into our curated collection of articles on blockchain development, Thirdweb insights, and the future of decentralized applications. Stay ahead in the Web3 revolution!
+            </p>
+<div class="mt-5">
+<span class="badge bg-primary me-2 p-2" style="background: linear-gradient(45deg, #8a2be2, #4b0082) !important;">Blockchain</span>
+<span class="badge bg-info me-2 p-2" style="background: linear-gradient(45deg, #00ffff, #1e90ff) !important;">Thirdweb</span>
+<span class="badge bg-success me-2 p-2" style="background: linear-gradient(45deg, #00ff00, #008000) !important;">Web3</span>
+<span class="badge bg-warning p-2" style="background: linear-gradient(45deg, #ffd700, #ff8c00) !important;">Development</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container mt-5">
+<div class="row">
+<div class="col-lg-8 mx-auto">
+<div class="card bg-dark text-light mb-4">
+<div class="card-body">
+<h2 class="card-title text-neon-purple">Latest Blog Posts</h2>
+<p class="card-text text-cyan">Explore our latest insights on Web3 development and Thirdweb</p>
+</div>
+</div>
+<div class="card bg-dark text-light mb-4 hover-effect">
+<div class="row g-0">
+<div class="col-md-4">
+<img alt="Colorful abstract representation of Web3 basics with interconnected nodes and Thirdweb logo" class="img-fluid rounded-start" src="images/image_0_posts.png" style="height: 100%; object-fit: cover;"/>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<h5 class="card-title text-neon-blue">Getting Started with Thirdweb: A Beginner's Guide</h5>
+<p class="card-text">An introductory post explaining the basics of Thirdweb, its features, and how to set up your first Web3 project using the platform.</p>
+<a class="btn btn-outline-cyan mt-2" href="posts_1.html">Read More</a>
+</div>
+</div>
+</div>
+</div>
+<div class="card bg-dark text-light mb-4 hover-effect">
+<div class="row g-0">
+<div class="col-md-4">
+<img alt="Futuristic representation of secure smart contracts with locks and shield symbols" class="img-fluid rounded-start" src="images/image_1_posts.png" style="height: 100%; object-fit: cover;"/>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<h5 class="card-title text-neon-green">5 Best Practices for Developing Secure Automated Agreements</h5>
+<p class="card-text">A comprehensive guide on writing secure and efficient automated agreements, with examples and tips specific to Thirdweb's development environment.</p>
+<a class="btn btn-outline-green mt-2" href="posts_2.html">Read More</a>
+</div>
+</div>
+</div>
+</div>
+<div class="card bg-dark text-light mb-4 hover-effect">
+<div class="row g-0">
+<div class="col-md-4">
+<img alt="Vibrant illustration of an NFT marketplace with digital art pieces and cryptocurrency symbols" class="img-fluid rounded-start" src="images/image_2_posts.png" style="height: 100%; object-fit: cover;"/>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<h5 class="card-title text-neon-purple">Building and Deploying Digital asset Marketplaces with Thirdweb</h5>
+<p class="card-text">Step-by-step tutorial on creating and launching an Digital collectible marketplace using Thirdweb's tools and SDKs, including best practices for scalability.</p>
+<a class="btn btn-outline-purple mt-2" href="posts_3.html">Read More</a>
+</div>
+</div>
+</div>
+</div>
+<div class="card bg-dark text-light mb-4 hover-effect">
+<div class="row g-0">
+<div class="col-md-4">
+<img alt="Abstract visualization of Web3 authentication process with wallet icons and secure connection symbols" class="img-fluid rounded-start" src="images/image_3_posts.png" style="height: 100%; object-fit: cover;"/>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<h5 class="card-title text-neon-cyan">Web3 Authentication: Implementing Account Connect in Your dApp</h5>
+<p class="card-text">A detailed walkthrough on integrating Web3 authentication methods, focusing on Account Connect implementation using Thirdweb's authentication solutions.</p>
+<a class="btn btn-outline-blue mt-2" href="posts_4.html">Read More</a>
+</div>
+</div>
+</div>
+</div>
+<div class="card bg-dark text-light mb-4 hover-effect">
+<div class="row g-0">
+<div class="col-md-4">
+<img alt="Futuristic interface showcasing new Thirdweb features with holographic projections" class="img-fluid rounded-start" src="images/image_4_posts.png" style="height: 100%; object-fit: cover;"/>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<h5 class="card-title text-neon-green">Thirdweb's Latest Features: What's New and How to Use Them</h5>
+<p class="card-text">An up-to-date overview of Thirdweb's newest tools and features, with practical examples of how they can enhance your Web3 development workflow.</p>
+<a class="btn btn-outline-cyan mt-2" href="posts_5.html">Read More</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<style>
+  body {
+    background-color: #111;
+    color: #fff;
+  }
+  .card {
+    border: none;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  .hover-effect:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
+  }
+  .text-neon-purple {
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff;
+  }
+  .text-neon-blue {
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;
+  }
+  .text-neon-green {
+    color: #00ff00;
+    text-shadow: 0 0 10px #00ff00;
+  }
+  .text-cyan {
+    color: #00ffff;
+  }
+  .btn-outline-cyan {
+    color: #00ffff;
+    border-color: #00ffff;
+  }
+  .btn-outline-green {
+    color: #00ff00;
+    border-color: #00ff00;
+  }
+  .btn-outline-purple {
+    color: #ff00ff;
+    border-color: #ff00ff;
+  }
+  .btn-outline-blue {
+    color: #0080ff;
+    border-color: #0080ff;
+  }
+  .btn-outline-cyan:hover, .btn-outline-green:hover, .btn-outline-purple:hover, .btn-outline-blue:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+  }
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+  const cards = document.querySelectorAll('.hover-effect');
+  cards.forEach(card => {
+    card.addEventListener('mouseover', () => {
+      card.style.transform = 'translateY(-5px)';
+      card.style.boxShadow = '0 10px 20px rgba(0, 255, 255, 0.2)';
+    });
+    card.addEventListener('mouseout', () => {
+      card.style.transform = 'translateY(0)';
+      card.style.boxShadow = 'none';
+    });
+  });
+});
+</script>
+</div>
+<footer style="width: 100%; z-index: 1000;">
+<footer class="bg-dark text-light py-4">
+<div class="container">
+<div class="row">
+<div class="col-md-4 mb-3 mb-md-0">
+<h5 class="text-uppercase mb-3" style="color: #00ffff;">top3web_network</h5>
+<p class="small">Empowering the future of blockchain and Web3 development with cutting-edge insights and tools.</p>
+</div>
+<div class="col-md-4 mb-3 mb-md-0">
+<h5 class="text-uppercase mb-3" style="color: #00ffff;">Quick Links</h5>
+<ul class="list-unstyled">
+<li><a class="text-light text-decoration-none hover-neon" href="posts.html">Latest Posts</a></li>
+<li><a class="text-light text-decoration-none hover-neon" href="about.html">About Us</a></li>
+<li><a class="text-light text-decoration-none hover-neon" href="contacts.html">Contact</a></li>
+<li><a class="text-light text-decoration-none hover-neon" href="privacy_policy.html">Privacy Policy</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<h5 class="text-uppercase mb-3" style="color: #00ffff;">Connect With Us</h5>
+<div class="d-flex justify-content-start">
+<a class="me-3 text-light hover-neon" href="#"><i class="fab fa-twitter fa-lg"></i></a>
+<a class="me-3 text-light hover-neon" href="#"><i class="fab fa-linkedin fa-lg"></i></a>
+<a class="me-3 text-light hover-neon" href="#"><i class="fab fa-github fa-lg"></i></a>
+<a class="text-light hover-neon" href="#"><i class="fab fa-discord fa-lg"></i></a>
+</div>
+</div>
+</div>
+<hr class="my-4" style="background-color: #00ffff;"/>
+<div class="row">
+<div class="col-md-6 text-center text-md-start">
+<p class="small mb-0">© 2024 top3web_network. All rights reserved.</p>
+</div>
+<div class="col-md-6 text-center text-md-end">
+<p class="small mb-0">Pioneering the blockchain platform for business innovation</p>
+</div>
+</div>
+</div>
+</footer>
+<style>
+    .hover-neon:hover {
+        color: #00ffff !important;
+        text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff;
+        transition: all 0.3s ease;
+    }
+    footer {
+        background: linear-gradient(45deg, #000000, #1a1a1a);
+        box-shadow: 0 -5px 15px rgba(0, 255, 255, 0.1);
+    }
+</style>
+</footer>
+</body>
+</html>
